@@ -1,0 +1,107 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">
+        <img src="assets\image\nagarro logo.png" class="d-inline-block align-top" alt="Nagarro notification system">
+        <b class="notify">Notification System</b>
+    </a>
+</nav>
+
+<ngx-spinner bdColor="white" [fullScreen]="true">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+    <h3>
+        <span>L</span>
+        <span>o</span>
+        <span>a</span>
+        <span>d</span>
+        <span>i</span>
+        <span>n</span>
+        <span>g</span>
+        <span>...</span>
+    </h3>
+    <div class="google-loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</ngx-spinner>
+
+<div class="cotainer">
+
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header"><b>Write the message</b></div>
+                <div class="card-body">
+                    <form name="my-form" #form (ngSubmit)="onSubmit(form)">
+                        <div class="form-group row">
+                            <label for="Type" class="col-md-4 col-form-label text-md-right"><mark>*</mark>Type
+                            </label>
+                            <select name="type" class="form-control col-md-5 ">
+                                <option value="EVENTS">EVENTS</option>
+                                <option value="URGENT-HELP">URGENT-HELP</option>
+                                <option value="NAGARRO-NEWS">NAGARRO-NEWS</option>
+                                <option value="HOLIDAY">HOLIDAY</option>
+                                <option value="NEW-POLICY">NEW-POLICY</option>
+                            </select>
+                        </div>
+                        <div class="form-group row">
+                            <label for="description" class="col-md-4 col-form-label text-md-right">Description
+                            </label>
+                            <div class="col-md-6">
+                                <textarea placeholder="Enter the description" class="form-control" name="description"
+                                    cols="30" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-10 offset-md-4">
+                            <input type="submit" value="Send">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header" (click)="showMe =! showMe"><b>All Notification</b></div>
+                <div *ngIf="showMe">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">TYPE</th>
+                                <th scope="col">DESCRIPTION</th>
+                                <th></th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor = 'let item of notificationList '>
+                                
+                                <td>{{item.type}}</td>
+                                <td>{{item.description}}</td>
+                                <td>
+                                    <button class= "btn btn-danger" (click)="ClearTask({id: item.id, type: item.type,description:item.description})">Clear</button>
+                                </td> 
+                               
+                              </tr>
+                              
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

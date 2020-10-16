@@ -1,0 +1,23 @@
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="assets\image\nagarro logo.png" class="d-inline-block align-top" alt="Nagarro notification system">
+    <b class="notify">Notification System</b>
+  </a>
+</nav> 
+  
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="https://img.icons8.com/color/1000/000000/user.png" id="icon" height="150" alt="User Icon" />
+      </div>
+  
+      <!-- Login Form -->
+      <form #form ="ngForm" >
+        <input type="text" id="login" class="fadeIn second" name="userName" ngModel placeholder="username">  
+        <input type="password" id="password" class="fadeIn third" name="password" ngModel placeholder="password">
+        <input type="button" class="fadeIn fourth" value="Log In " (click)="login(form)">
+      </form>
+    </div>
+  </div>
